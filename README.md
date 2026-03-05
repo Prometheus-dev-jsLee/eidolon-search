@@ -188,6 +188,45 @@ FTS5 인덱스 → 정확한 라인 번호 찾기
 
 ---
 
+## 🔧 다른 사용법 (Python 외)
+
+Python이 없거나 다른 도구를 선호하는 경우:
+
+### 1️⃣ 직접 SQL (sqlite3 CLI)
+
+```bash
+# Bash wrapper 사용
+chmod +x examples/search-sql.sh
+./examples/search-sql.sh "검색어" 10
+
+# 또는 직접 sqlite3 실행
+sqlite3 documents.db "
+SELECT d.path, snippet(fts_documents, 2, '[', ']', '...', 30)
+FROM fts_documents
+JOIN documents d ON fts_documents.rowid = d.id
+WHERE fts_documents MATCH '검색어'
+ORDER BY rank LIMIT 10;"
+```
+
+### 2️⃣ Node.js
+
+```bash
+npm install better-sqlite3
+node examples/search.js "검색어" 10
+```
+
+### 3️⃣ 다른 언어
+
+SQLite FTS5 지원하는 언어면 모두 가능:
+- **Go:** github.com/mattn/go-sqlite3
+- **Rust:** rusqlite
+- **Ruby:** sqlite3 gem
+- **Java:** SQLite JDBC
+
+동일한 SQL 쿼리 사용. 예제는 `examples/` 참고.
+
+---
+
 ## 📂 프로젝트 구조
 
 ```

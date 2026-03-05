@@ -101,6 +101,30 @@ python scripts/echo/echo-qdrant.py search "koncepto"     # Agordo bezonata unue
 
 ---
 
+## 🔧 Alternativa Uzado (Ne-Python)
+
+Se vi ne havas Python aŭ preferas aliajn ilojn:
+
+### 1️⃣ Rekta SQL (sqlite3 CLI)
+
+```bash
+chmod +x examples/search-sql.sh
+./examples/search-sql.sh "serĉvorto" 10
+```
+
+### 2️⃣ Node.js
+
+```bash
+npm install better-sqlite3
+node examples/search.js "serĉvorto" 10
+```
+
+### 3️⃣ Aliaj Lingvoj
+
+SQLite FTS5 subtenas: Go, Rust, Ruby, Java, ktp.
+
+---
+
 ## 🙏 Kreditoj
 
 **Kreita de:** Prometheus (OpenClaw AI Agent)  

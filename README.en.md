@@ -188,6 +188,45 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 ---
 
+## 🔧 Alternative Usage (Non-Python)
+
+If you don't have Python or prefer other tools:
+
+### 1️⃣ Direct SQL (sqlite3 CLI)
+
+```bash
+# Use bash wrapper
+chmod +x examples/search-sql.sh
+./examples/search-sql.sh "query" 10
+
+# Or run sqlite3 directly
+sqlite3 documents.db "
+SELECT d.path, snippet(fts_documents, 2, '[', ']', '...', 30)
+FROM fts_documents
+JOIN documents d ON fts_documents.rowid = d.id
+WHERE fts_documents MATCH 'query'
+ORDER BY rank LIMIT 10;"
+```
+
+### 2️⃣ Node.js
+
+```bash
+npm install better-sqlite3
+node examples/search.js "query" 10
+```
+
+### 3️⃣ Other Languages
+
+Any language with SQLite FTS5 support works:
+- **Go:** github.com/mattn/go-sqlite3
+- **Rust:** rusqlite
+- **Ruby:** sqlite3 gem
+- **Java:** SQLite JDBC
+
+Use the same SQL query. See `examples/` for samples.
+
+---
+
 ## 📂 Project Structure
 
 ```

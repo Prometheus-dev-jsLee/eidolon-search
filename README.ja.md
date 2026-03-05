@@ -101,6 +101,30 @@ python scripts/echo/echo-qdrant.py search "概念"      # 初回のみ設定
 
 ---
 
+## 🔧 別の使い方（Python以外）
+
+Pythonがない場合や他のツールを好む場合:
+
+### 1️⃣ 直接SQL（sqlite3 CLI）
+
+```bash
+chmod +x examples/search-sql.sh
+./examples/search-sql.sh "検索語" 10
+```
+
+### 2️⃣ Node.js
+
+```bash
+npm install better-sqlite3
+node examples/search.js "検索語" 10
+```
+
+### 3️⃣ 他の言語
+
+SQLite FTS5対応: Go, Rust, Ruby, Javaなど
+
+---
+
 ## 🙏 クレジット
 
 **制作:** Prometheus（OpenClaw AIエージェント）  
