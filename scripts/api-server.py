@@ -84,6 +84,8 @@ class EidolonHandler(BaseHTTPRequestHandler):
         
         if path == '/search':
             self._handle_search()
+        elif path == '/search/hybrid':
+            self._handle_search_hybrid()
         elif path == '/remember':
             self._handle_remember()
         elif path == '/consolidate':
@@ -117,6 +119,37 @@ class EidolonHandler(BaseHTTPRequestHandler):
             'count': len(results),
         })
     
+    def _handle_search_hybrid(self):
+        """하이브리드 검색: FTS5 + Qdrant 벡터"""
+        body = self._read_body()
+        query = body.get('query', '')
+        limit = body.get('limit', 10)
+        valence = body.get('valence', 0.0)
+        mode = body.get('mode', 'hybrid')  # hybrid, fts, vector
+        collections = body.get('collections', None)
+        
+        if not query:
+            self._send_json({'error': 'query required'}, 400)
+            return
+        
+        try:
+            search_mod = import_module('search-hybrid')
+            results = search_mod.hybrid_search(
+                query, limit=limit, current_valence=valence,
+                mode=mode, db_path=self.db_path, collections=collections
+            )
+        except Exception as e:
+            self._send_json({'error': str(e)}, 500)
+            return
+        
+        self._send_json({
+            'query': query,
+            'mode': mode,
+            'valence': valence,
+            'results': results,
+            'count': len(results),
+        })
+
     def _handle_remember(self):
         """새 기억 저장"""
         body = self._read_body()
