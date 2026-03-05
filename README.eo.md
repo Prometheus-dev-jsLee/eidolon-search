@@ -61,6 +61,38 @@ Kreita el 4-taga aŭskultado, konektado, kaj integrado de komprenoj el la mersoo
 
 ---
 
+## 📦 Instalado
+
+### Metodo 1: OpenClaw-Lerteco (Rekomendita)
+
+Se vi uzas OpenClaw, instalu per unu komando:
+
+```bash
+clawhub install eidolon-search
+```
+
+Via AI-agento aŭtomate rekonos kaj uzos ĝin.
+
+### Metodo 2: Git Clone
+
+```bash
+git clone https://github.com/Prometheus-dev-jsLee/eidolon-search.git
+cd eidolon-search
+```
+
+Neniuj dependecoj. Nur Python 3.6+ kaj SQLite3.
+
+### Metodo 3: Kopiu Nur Skriptojn
+
+Vi bezonas nur 2 dosierojn:
+
+```
+scripts/build-index.py  # Indeksado
+scripts/search.py       # Serĉo
+```
+
+---
+
 ## ⚡ Rapida Komenco
 
 ```bash

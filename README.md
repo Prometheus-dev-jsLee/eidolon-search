@@ -87,6 +87,40 @@ Then use it to search memory files efficiently.
 
 ---
 
+## 📦 설치
+
+### 방법 1: OpenClaw 스킬 (추천)
+
+OpenClaw 사용자라면 한 줄로 설치:
+
+```bash
+clawhub install eidolon-search
+```
+
+설치 후 AI Agent가 자동으로 인식합니다. Agent에게 "메모리 검색해줘"라고 말하면 바로 사용.
+
+### 방법 2: Git Clone
+
+```bash
+git clone https://github.com/Prometheus-dev-jsLee/eidolon-search.git
+cd eidolon-search
+```
+
+의존성 없음. Python 3.6+ 와 SQLite3만 있으면 됩니다.
+
+### 방법 3: 스크립트만 복사
+
+필요한 파일 2개만 가져가도 됩니다:
+
+```
+scripts/build-index.py  # 인덱싱
+scripts/search.py       # 검색
+```
+
+SQLite FTS5 기반이라 외부 의존성이 없습니다.
+
+---
+
 ## ⚡ 빠른 시작
 
 ### 1️⃣ 인덱싱 (처음 한 번)

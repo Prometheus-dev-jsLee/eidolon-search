@@ -87,6 +87,40 @@ These insights converged into one principle:
 
 ---
 
+## 📦 Installation
+
+### Option 1: OpenClaw Skill (Recommended)
+
+If you use OpenClaw, install with one command:
+
+```bash
+clawhub install eidolon-search
+```
+
+Your AI Agent will automatically detect and use it. Just say "search my memory" and it works.
+
+### Option 2: Git Clone
+
+```bash
+git clone https://github.com/Prometheus-dev-jsLee/eidolon-search.git
+cd eidolon-search
+```
+
+No dependencies. Just Python 3.6+ and SQLite3.
+
+### Option 3: Copy Scripts Only
+
+You only need 2 files:
+
+```
+scripts/build-index.py  # Indexing
+scripts/search.py       # Search
+```
+
+Pure SQLite FTS5 — zero external dependencies.
+
+---
+
 ## ⚡ Quick Start
 
 ### 1️⃣ Indexing (First time only)
