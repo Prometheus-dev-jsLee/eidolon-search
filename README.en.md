@@ -61,6 +61,7 @@ Then use it to search memory files efficiently.
    - AI Agent asks user and decides interactively
    - Cloud: multi-device, high quality (1536-dim), API cost
    - Local: privacy, free (384-dim), offline
+   - **Most cases: Local (384-dim) is sufficient** ← for personal memory
    - Details: [docs/SETUP.md](docs/SETUP.md)
 
 Agent guides setup through conversation. No complex docs.

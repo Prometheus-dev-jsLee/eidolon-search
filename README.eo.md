@@ -45,7 +45,9 @@ python scripts/search/compare-search.py "serĉvorto" --session-tokens 50000
 python scripts/echo/echo-qdrant.py search "koncepto"
 ```
 
-**Qdrant Agordo:** Agento demandas uzanton (Cloud aŭ Loka, 384~3072-dim) → [SETUP.md](docs/SETUP.md)
+**Qdrant Agordo:** Agento demandas uzanton (Cloud aŭ Loka, 384~3072-dim)  
+**Plej multaj kazoj:** Loka (384-dim) sufiĉas ← por persona memoro  
+→ [SETUP.md](docs/SETUP.md)
 
 ---
 

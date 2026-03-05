@@ -45,7 +45,9 @@ python scripts/search/compare-search.py "クエリ" --session-tokens 50000
 python scripts/echo/echo-qdrant.py search "概念"
 ```
 
-**Qdrant設定:** エージェントがユーザーに質問 (CloudまたはLocal, 384~3072次元) → [SETUP.md](docs/SETUP.md)
+**Qdrant設定:** エージェントがユーザーに質問 (CloudまたはLocal, 384~3072次元)  
+**ほとんどの場合:** Local (384次元) で十分 ← 個人メモリの場合  
+→ [SETUP.md](docs/SETUP.md)
 
 ---
 

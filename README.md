@@ -61,6 +61,7 @@ Then use it to search memory files efficiently.
    - AI Agent가 사용자에게 물어보고 결정하도록 설계됨
    - Cloud: 멀티 디바이스, 고품질 (1536차원), API 비용
    - 로컬: 프라이버시, 무료 (384차원), 오프라인
+   - **대부분은 로컬 (384차원)로 충분함** ← 개인 메모리 기준
    - 상세: [docs/SETUP.md](docs/SETUP.md)
 
 설정은 Agent가 사용자와 대화하며 진행. 복잡한 설명 없음.
