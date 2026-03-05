@@ -113,12 +113,13 @@ def vector_search(query, limit=30, collections=None):
     results = []
     for coll_name in collections:
         try:
-            hits = client.search(
+            response = client.query_points(
                 collection_name=coll_name,
-                query_vector=embedding,
+                query=embedding,
                 limit=limit,
                 with_payload=True,
             )
+            hits = response.points if hasattr(response, 'points') else response
             for hit in hits:
                 payload = hit.payload or {}
                 results.append({
