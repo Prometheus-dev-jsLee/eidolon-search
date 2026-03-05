@@ -42,17 +42,17 @@ Then use it to search memory files efficiently.
 
 ### AI 에이전트가 할 일
 
-1. **검색하기**
+1. **인덱싱** (처음 한 번)
    ```bash
-   python scripts/search/search-content.py "검색어"
+   python scripts/build-index.py ./memory ./memory.db
    ```
 
-2. **성능 비교하기** (기존 방식 vs 새 방식)
+2. **검색하기**
    ```bash
-   python scripts/search/compare-search.py "검색어" --session-tokens 50000
+   python scripts/search.py "검색어" 10
    ```
 
-3. **Echo 관리하기** (장기 기억)
+3. **Echo 관리** (선택사항, Qdrant)
    ```bash
    python scripts/echo/echo-qdrant.py search "개념"
    ```
@@ -64,7 +64,7 @@ Then use it to search memory files efficiently.
    - **대부분은 로컬 (384차원)로 충분함** ← 개인 메모리 기준
    - 상세: [docs/SETUP.md](docs/SETUP.md)
 
-설정은 Agent가 사용자와 대화하며 진행. 복잡한 설명 없음.
+간단함: 인덱싱 → 검색. Agent가 사용자와 대화하며 진행.
 
 ---
 
@@ -89,17 +89,30 @@ Then use it to search memory files efficiently.
 
 ## ⚡ 빠른 시작
 
+### 1️⃣ 인덱싱 (처음 한 번)
+
 ```bash
-# 의존성 설치
-pip install -r requirements.txt
+# 메모리 파일을 DB로 인덱싱
+python scripts/build-index.py ./memory ./memory.db
+```
 
-# 메모리 파일 검색 (스니펫만, 설정 불필요)
-python scripts/search/search-content.py "검색어"
+### 2️⃣ 검색
 
-# 성능 비교 (기존 vs 새 방식)
-python scripts/search/compare-search.py "검색어" --session-tokens 50000
+```bash
+# Python
+python scripts/search.py "검색어" 10
 
-# Echo 관리 (Qdrant - 처음엔 설정 필요)
+# Node.js
+npm install better-sqlite3
+node examples/search.js "검색어" 10
+
+# SQL (Bash)
+./examples/search-sql.sh "검색어" 10
+```
+
+### 3️⃣ Echo 관리 (선택사항, Qdrant 필요)
+
+```bash
 python scripts/echo/echo-qdrant.py search "개념"
 ```
 
@@ -200,11 +213,10 @@ chmod +x examples/search-sql.sh
 ./examples/search-sql.sh "검색어" 10
 
 # 또는 직접 sqlite3 실행
-sqlite3 documents.db "
-SELECT d.path, snippet(fts_documents, 2, '[', ']', '...', 30)
-FROM fts_documents
-JOIN documents d ON fts_documents.rowid = d.id
-WHERE fts_documents MATCH '검색어'
+sqlite3 memory.db "
+SELECT path, snippet(memory_fts, 1, '[', ']', '...', 30)
+FROM memory_fts
+WHERE memory_fts MATCH '검색어'
 ORDER BY rank LIMIT 10;"
 ```
 

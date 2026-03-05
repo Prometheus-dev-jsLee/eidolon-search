@@ -35,18 +35,18 @@ Then use it to search memory files efficiently.
 ### Kion AI agentoj faru
 
 ```bash
-# Serĉi
-python scripts/search/search-content.py "via serĉvorto"
+# 1. Indeksi (unua fojo)
+python scripts/build-index.py ./memory ./memory.db
 
-# Kompari rendimenton
-python scripts/search/compare-search.py "serĉvorto" --session-tokens 50000
+# 2. Serĉi
+python scripts/search.py "serĉvorto" 10
 
-# Administri Echo (unua fojo: agordo bezonata)
+# 3. Echo (opcia, Qdrant)
 python scripts/echo/echo-qdrant.py search "koncepto"
 ```
 
-**Qdrant Agordo:** Agento demandas uzanton (Cloud aŭ Loka, 384~3072-dim)  
-**Plej multaj kazoj:** Loka (384-dim) sufiĉas ← por persona memoro  
+**Qdrant Agordo:** Agento demandas uzanton (Cloud aŭ Loka)  
+**Plej multaj kazoj:** Loka (384-dim) sufiĉas  
 → [SETUP.md](docs/SETUP.md)
 
 ---
@@ -64,12 +64,16 @@ Kreita el 4-taga aŭskultado, konektado, kaj integrado de komprenoj el la mersoo
 ## ⚡ Rapida Komenco
 
 ```bash
-pip install -r requirements.txt
-python scripts/search/search-content.py "via serĉvorto"  # Neniu agordo
-python scripts/echo/echo-qdrant.py search "koncepto"     # Agordo bezonata unue
+# 1. Indeksi (unua fojo)
+python scripts/build-index.py ./memory ./memory.db
+
+# 2. Serĉi
+python scripts/search.py "serĉvorto" 10
+node examples/search.js "serĉvorto" 10
+./examples/search-sql.sh "serĉvorto" 10
 ```
 
-**Unua fojo:** Agento demandas pri Qdrant (Cloud aŭ Loka) → [SETUP.md](docs/SETUP.md)
+**Unua fojo:** Indeksi → Serĉi. Por Qdrant: [SETUP.md](docs/SETUP.md)
 
 ---
 

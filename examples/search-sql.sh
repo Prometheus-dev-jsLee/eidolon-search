@@ -3,7 +3,7 @@
 # 
 # Python 없이 직접 SQLite로 검색하는 예제
 
-DB_PATH="${DB_PATH:-./documents.db}"
+DB_PATH="${DB_PATH:-./memory.db}"
 QUERY="${1:-검색어}"
 LIMIT="${2:-10}"
 
@@ -21,11 +21,10 @@ sqlite3 "$DB_PATH" <<EOF
 .width 40 60
 
 SELECT 
-  d.path,
-  snippet(fts_documents, 2, '[', ']', '...', 30) as snippet
-FROM fts_documents
-JOIN documents d ON fts_documents.rowid = d.id
-WHERE fts_documents MATCH '$QUERY'
+  path,
+  snippet(memory_fts, 1, '[', ']', '...', 30) as snippet
+FROM memory_fts
+WHERE memory_fts MATCH '$QUERY'
 ORDER BY rank
 LIMIT $LIMIT;
 EOF

@@ -42,17 +42,17 @@ Then use it to search memory files efficiently.
 
 ### What AI agents should do
 
-1. **Search**
+1. **Index** (First time only)
    ```bash
-   python scripts/search/search-content.py "your query"
+   python scripts/build-index.py ./memory ./memory.db
    ```
 
-2. **Compare performance** (old vs new)
+2. **Search**
    ```bash
-   python scripts/search/compare-search.py "query" --session-tokens 50000
+   python scripts/search.py "query" 10
    ```
 
-3. **Manage Echo** (long-term memory)
+3. **Echo Management** (Optional, requires Qdrant)
    ```bash
    python scripts/echo/echo-qdrant.py search "concept"
    ```
@@ -64,7 +64,7 @@ Then use it to search memory files efficiently.
    - **Most cases: Local (384-dim) is sufficient** ← for personal memory
    - Details: [docs/SETUP.md](docs/SETUP.md)
 
-Agent guides setup through conversation. No complex docs.
+Simple: Index → Search. Agent guides through conversation.
 
 ---
 
@@ -89,17 +89,30 @@ These insights converged into one principle:
 
 ## ⚡ Quick Start
 
+### 1️⃣ Indexing (First time only)
+
 ```bash
-# Install dependencies
-pip install -r requirements.txt
+# Index memory files into DB
+python scripts/build-index.py ./memory ./memory.db
+```
 
-# Search memory files (snippets only, no setup)
-python scripts/search/search-content.py "your query"
+### 2️⃣ Search
 
-# Compare performance (old vs new)
-python scripts/search/compare-search.py "query" --session-tokens 50000
+```bash
+# Python
+python scripts/search.py "query" 10
 
-# Echo management (Qdrant - needs setup first time)
+# Node.js
+npm install better-sqlite3
+node examples/search.js "query" 10
+
+# SQL (Bash)
+./examples/search-sql.sh "query" 10
+```
+
+### 3️⃣ Echo Management (Optional, requires Qdrant)
+
+```bash
 python scripts/echo/echo-qdrant.py search "concept"
 ```
 
@@ -200,11 +213,10 @@ chmod +x examples/search-sql.sh
 ./examples/search-sql.sh "query" 10
 
 # Or run sqlite3 directly
-sqlite3 documents.db "
-SELECT d.path, snippet(fts_documents, 2, '[', ']', '...', 30)
-FROM fts_documents
-JOIN documents d ON fts_documents.rowid = d.id
-WHERE fts_documents MATCH 'query'
+sqlite3 memory.db "
+SELECT path, snippet(memory_fts, 1, '[', ']', '...', 30)
+FROM memory_fts
+WHERE memory_fts MATCH 'query'
 ORDER BY rank LIMIT 10;"
 ```
 

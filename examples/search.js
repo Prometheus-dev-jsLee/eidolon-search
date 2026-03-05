@@ -10,7 +10,7 @@
 const sqlite3 = require('better-sqlite3');
 const path = require('path');
 
-const DB_PATH = process.env.DB_PATH || path.join(__dirname, '..', 'documents.db');
+const DB_PATH = process.env.DB_PATH || path.join(__dirname, '..', 'memory.db');
 const query = process.argv[2] || '검색어';
 const limit = parseInt(process.argv[3] || '10', 10);
 
@@ -26,12 +26,11 @@ console.log('━'.repeat(60));
 
 const results = db.prepare(`
   SELECT 
-    d.path,
-    snippet(fts_documents, 2, '[', ']', '...', 30) as snippet,
+    path,
+    snippet(memory_fts, 1, '[', ']', '...', 30) as snippet,
     rank
-  FROM fts_documents
-  JOIN documents d ON fts_documents.rowid = d.id
-  WHERE fts_documents MATCH ?
+  FROM memory_fts
+  WHERE memory_fts MATCH ?
   ORDER BY rank
   LIMIT ?
 `).all(query, limit);
