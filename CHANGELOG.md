@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.0.3 (2026-03-05)
+
+### 추가
+- **Alias 사전** — 오타/동의어 자동 교정 (`scripts/alias-dict.py`)
+  - 오타: Phisical→Physical, Promethues→Prometheus 등
+  - 동의어: 인공지능→AI, 차량→자동차 등
+  - 쿼리 자동 확장 (OR 결합)
+  - 기본 alias 12개 내장, 추가/삭제 가능
+
+### 피드백 반영
+- Codex돌쇠: "trigram 전에 alias 사전으로 먼저 교정" 제안 채택
+
+---
+
+
 ## v0.0.2 (2026-03-05)
 
 ### 추가
