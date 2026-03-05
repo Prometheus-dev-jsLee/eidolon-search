@@ -73,6 +73,13 @@ node examples/search.js "serĉvorto" 10
 ./examples/search-sql.sh "serĉvorto" 10
 ```
 
+**Ekzemplaj Demandoj:**
+```bash
+python scripts/search.py "Physical AI roadmap" 5
+python scripts/search.py "projekta progreso" 10
+python scripts/search.py "FTS5 optimumigo" 5
+```
+
 **Unua fojo:** Indeksi → Serĉi. Por Qdrant: [SETUP.md](docs/SETUP.md)
 
 ---

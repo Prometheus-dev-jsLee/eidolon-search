@@ -110,6 +110,30 @@ node examples/search.js "검색어" 10
 ./examples/search-sql.sh "검색어" 10
 ```
 
+**샘플 쿼리 예시:**
+
+```bash
+# 프로젝트/로드맵 검색
+python scripts/search.py "Physical AI 로드맵" 5
+python scripts/search.py "Triangle 완성" 5
+
+# 대화 기록에서 핵심 발췌
+python scripts/search.py "미라클 철학" 10
+
+# 기술적 내용 검색
+python scripts/search.py "Qdrant 설정" 5
+python scripts/search.py "FTS5 최적화" 5
+```
+
+**결과 예시:**
+```
+📄 memory/2026-03-01.md (rank: 1.234)
+   Line 45-47: Physical AI 로드맵 초안 작성...
+   
+📄 memory/2026-02-28.md (rank: 0.987)
+   Line 123-125: Jetson Orin Nano 검토...
+```
+
 ### 3️⃣ Echo 관리 (선택사항, Qdrant 필요)
 
 ```bash

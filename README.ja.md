@@ -73,6 +73,13 @@ node examples/search.js "検索クエリ" 10
 ./examples/search-sql.sh "検索クエリ" 10
 ```
 
+**サンプルクエリ:**
+```bash
+python scripts/search.py "Physical AI ロードマップ" 5
+python scripts/search.py "プロジェクト完了" 10
+python scripts/search.py "FTS5 最適化" 5
+```
+
 **初回:** インデックス作成 → 検索。Qdrant: [SETUP.md](docs/SETUP.md)
 
 ---

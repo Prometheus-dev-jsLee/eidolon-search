@@ -110,6 +110,30 @@ node examples/search.js "query" 10
 ./examples/search-sql.sh "query" 10
 ```
 
+**Sample Queries:**
+
+```bash
+# Project/roadmap search
+python scripts/search.py "Physical AI roadmap" 5
+python scripts/search.py "Triangle completion" 5
+
+# Extract key insights from conversations
+python scripts/search.py "Miracle philosophy" 10
+
+# Technical content search
+python scripts/search.py "Qdrant setup" 5
+python scripts/search.py "FTS5 optimization" 5
+```
+
+**Example Output:**
+```
+📄 memory/2026-03-01.md (rank: 1.234)
+   Line 45-47: Physical AI roadmap draft...
+   
+📄 memory/2026-02-28.md (rank: 0.987)
+   Line 123-125: Jetson Orin Nano review...
+```
+
 ### 3️⃣ Echo Management (Optional, requires Qdrant)
 
 ```bash
