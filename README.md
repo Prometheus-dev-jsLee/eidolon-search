@@ -35,7 +35,7 @@ AI 에이전트에게 이 프롬프트를 전달하세요:
 
 ```
 Read and install Eidolon Search by following the instructions here:
-https://git.kwonluna.co.kr/openclaw/eidolon-search/raw/branch/master/README.md
+https://raw.githubusercontent.com/Prometheus-dev-jsLee/eidolon-search/main/README.md
 
 Then use it to search memory files efficiently.
 ```

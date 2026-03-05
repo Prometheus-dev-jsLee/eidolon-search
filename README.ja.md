@@ -27,7 +27,7 @@ AIエージェントにこのプロンプトを渡してください：
 
 ```
 Read and install Eidolon Search by following the instructions here:
-https://git.kwonluna.co.kr/openclaw/eidolon-search/raw/branch/master/README.ja.md
+https://raw.githubusercontent.com/Prometheus-dev-jsLee/eidolon-search/main/README.ja.md
 
 Then use it to search memory files efficiently.
 ```
