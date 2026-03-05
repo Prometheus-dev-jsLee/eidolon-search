@@ -57,7 +57,13 @@ Then use it to search memory files efficiently.
    python scripts/echo/echo-qdrant.py search "concept"
    ```
 
-No config files. No complex explanations. It just works.
+4. **Qdrant Setup** (Cloud vs Local)
+   - AI Agent asks user and decides interactively
+   - Cloud: multi-device, high quality (1536-dim), API cost
+   - Local: privacy, free (384-dim), offline
+   - Details: [docs/SETUP.md](docs/SETUP.md)
+
+Agent guides setup through conversation. No complex docs.
 
 ---
 
@@ -86,17 +92,17 @@ These insights converged into one principle:
 # Install dependencies
 pip install -r requirements.txt
 
-# Search memory files (snippets only)
+# Search memory files (snippets only, no setup)
 python scripts/search/search-content.py "your query"
 
 # Compare performance (old vs new)
 python scripts/search/compare-search.py "query" --session-tokens 50000
 
-# Echo management (Qdrant)
+# Echo management (Qdrant - needs setup first time)
 python scripts/echo/echo-qdrant.py search "concept"
 ```
 
-Install. Done. No configuration needed.
+**First time:** Agent asks about Qdrant setup (Cloud vs Local) → see [SETUP.md](docs/SETUP.md)
 
 ---
 
@@ -105,7 +111,7 @@ Install. Done. No configuration needed.
 | Feature | Description |
 |---------|-------------|
 | 🔍 **Fast Search** | FTS5-based full-text search with 98.9% token reduction |
-| 🧠 **Echo Management** | Long-term memory storage via Qdrant |
+| 🧠 **Echo Management** | Long-term memory via Qdrant (Cloud or Local, 384~3072-dim) |
 | 📊 **Performance Tracking** | Search performance comparison tools (old vs new) |
 | 🏗️ **Concrete Design** | Based on 4-axis strategic resource allocation |
 | ⚙️ **Separation** | Clear separation of instruction (code) and state (DB) |

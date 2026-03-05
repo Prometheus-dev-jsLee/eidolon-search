@@ -41,11 +41,11 @@ python scripts/search/search-content.py "via serĉvorto"
 # Kompari rendimenton
 python scripts/search/compare-search.py "serĉvorto" --session-tokens 50000
 
-# Administri Echo
+# Administri Echo (unua fojo: agordo bezonata)
 python scripts/echo/echo-qdrant.py search "koncepto"
 ```
 
-Neniu agordo. Neniu kompleksaj klarigoj. Ĝi simple funkcias.
+**Qdrant Agordo:** Agento demandas uzanton (Cloud aŭ Loka, 384~3072-dim) → [SETUP.md](docs/SETUP.md)
 
 ---
 
@@ -63,10 +63,11 @@ Kreita el 4-taga aŭskultado, konektado, kaj integrado de komprenoj el la mersoo
 
 ```bash
 pip install -r requirements.txt
-python scripts/search/search-content.py "via serĉvorto"
+python scripts/search/search-content.py "via serĉvorto"  # Neniu agordo
+python scripts/echo/echo-qdrant.py search "koncepto"     # Agordo bezonata unue
 ```
 
-Instalu. Finita. Neniu agordo bezonata.
+**Unua fojo:** Agento demandas pri Qdrant (Cloud aŭ Loka) → [SETUP.md](docs/SETUP.md)
 
 ---
 
@@ -75,7 +76,7 @@ Instalu. Finita. Neniu agordo bezonata.
 | Funkcio | Priskribo |
 |---------|-----------|
 | 🔍 **Rapida Serĉo** | FTS5-bazita plenteksta serĉo kun 98.9% ĵetona redukto |
-| 🧠 **Echo Administrado** | Longtempa memora stokado per Qdrant |
+| 🧠 **Echo Administrado** | Longtempa memoro per Qdrant (Cloud aŭ Loka, 384~3072-dim) |
 | 📊 **Rendimenta Spurado** | Serĉa rendimenta kompara iloj |
 
 ---
