@@ -6,11 +6,13 @@ Real-world benchmark results (not theoretical claims).
 
 ## ✅ Expected Performance
 
-**Conservative estimate:** **90% token reduction**  
-**Actual measured results:** Minimum 93%, Average 95.7%, Maximum 98.9%  
+**Conservative estimate:** **90% token reduction (10x)**  
+**Actual measured results:** Minimum 93% (14x), Average 95.7% (23x), Maximum 98.9% (90x)  
 **Speed improvement:** **5x ~ 15x faster**
 
 **Philosophy:** We prefer to under-promise and over-deliver. Real-world performance typically exceeds expectations.
+
+**Why multiplier (x) matters:** 90% reduction = you use 10% = 10x reduction. More intuitive than percentages.
 
 ---
 

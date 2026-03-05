@@ -5,7 +5,7 @@
 **Memory Preservation and Search System for AI Agents**
 
 Reading entire memory files = token waste (139K)  
-FTS5 index + snippet extraction = 90%+ reduction (1.5K)
+FTS5 index + snippet extraction = 90%+ reduction / 10x+ (1.5K)
 
 <!-- 
 [![GitHub Stars](https://img.shields.io/github/stars/openclaw/eidolon-search?style=social)](https://github.com/openclaw/eidolon-search)
@@ -124,7 +124,7 @@ python scripts/echo/echo-qdrant.py search "concept"
 
 | Feature | Description |
 |---------|-------------|
-| 🔍 **Fast Search** | FTS5-based full-text search with 90%+ token reduction (measured: 93~98.9%) |
+| 🔍 **Fast Search** | FTS5-based full-text search with 90%+ reduction / 10x+ (measured: 93~98.9% / 14~90x) |
 | 🧠 **Echo Management** | Long-term memory via Qdrant (Cloud or Local, 384~3072-dim) |
 | 📊 **Performance Tracking** | Search performance comparison tools (old vs new) |
 | 🏗️ **Concrete Design** | Based on 4-axis strategic resource allocation |
@@ -151,11 +151,11 @@ FTS5 index → Find exact line numbers
 → Read ONLY matched lines (±5 lines context)
 → Send 1.5K tokens to LLM
 → Fast (<1s), precise context
-→ Same accuracy, 90%+ token reduction
+→ Same accuracy, 90%+ token reduction (10x+)
 ```
 
-**Expected performance:** Around 90%  
-**Actual measured results:** Minimum 93%, Average 95.7%, Maximum 98.9%  
+**Expected performance:** Around 90% (10x)  
+**Actual measured results:** Minimum 93% (14x), Average 95.7% (23x), Maximum 98.9% (90x)  
 _(May vary depending on environment)_
 
 See [docs/PERFORMANCE.md](docs/PERFORMANCE.md) for benchmark data.

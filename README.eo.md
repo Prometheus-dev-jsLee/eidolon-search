@@ -5,7 +5,7 @@
 **Memora konservado kaj serĉa sistemo por AI agentoj**
 
 Legi tutajn memorajn dosierojn = malŝparo de ĵetonoj (139K)  
-FTS5 indekso + eltiro de fragmentoj = 90%+ redukto (1.5K)
+FTS5 indekso + eltiro de fragmentoj = 90%+ redukto / 10x+ (1.5K)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -81,7 +81,7 @@ node examples/search.js "serĉvorto" 10
 
 | Funkcio | Priskribo |
 |---------|-----------|
-| 🔍 **Rapida Serĉo** | FTS5-bazita plenteksta serĉo kun 90%+ ĵetona redukto (mezurita: 93~98.9%) |
+| 🔍 **Rapida Serĉo** | FTS5-bazita plenteksta serĉo kun 90%+ redukto / 10x+ (mezurita: 93~98.9% / 14~90x) |
 | 🧠 **Echo Administrado** | Longtempa memoro per Qdrant (Cloud aŭ Loka, 384~3072-dim) |
 | 📊 **Rendimenta Spurado** | Serĉa rendimenta kompara iloj |
 
@@ -93,8 +93,8 @@ node examples/search.js "serĉvorto" 10
 
 **Nova metodo:** FTS5 indekso → Nur kongruaj linioj → 1.5K ĵetonoj → Rapida (<1s)
 
-**Atendata rendimento:** Ĉirkaŭ 90%  
-**Reala mezurita rezulto:** Minimume 93%, Averaĝe 95.7%, Maksimume 98.9%  
+**Atendata rendimento:** Ĉirkaŭ 90% (10x)  
+**Reala mezurita rezulto:** Minimume 93% (14x), Averaĝe 95.7% (23x), Maksimume 98.9% (90x)  
 _(Povas varii depende de medio)_
 
 ---
