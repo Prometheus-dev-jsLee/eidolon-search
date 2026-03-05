@@ -1,0 +1,28 @@
+# Database files (generated)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Memory files (user data)
+memory/
+
+# Node modules
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
