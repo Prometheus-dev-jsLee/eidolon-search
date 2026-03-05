@@ -96,7 +96,29 @@ def consolidate(db_path=DB_PATH, dry_run=False, verbose=False):
                 if verbose:
                     print(f"  📈 {path}: reinforced +{boost:.3f} (recalls={consolidation})")
         
-        # ── 3. Prune: memories below threshold ──
+        # ── 3. Emotional Drift (Rosy Retrospection) ──
+        # 논문 Section 06: 현재 감정 상태가 과거 기억의 valence를 미세하게 조정
+        # "추억 미화"의 계산론적 구현: 매 주기마다 alpha=0.05로 중립 방향 이동
+        # 자주 회상된 기억은 더 강하게 드리프트 (회상 시 현재 기분 반영)
+        if valence is not None and days_since > 30:  # 30일 이상 된 기억만
+            # 기본: 시간이 지나면 중립(0.0) 방향으로 서서히 이동
+            # 긍정 기억은 약간 더 긍정으로 (survivorship bias), 부정은 중립으로
+            if valence < 0:
+                alpha = 0.03  # 부정 기억은 빠르게 중화
+            else:
+                alpha = 0.01  # 긍정 기억은 천천히 변화
+            
+            new_valence = valence * (1.0 - alpha)  # 중립(0) 방향으로 수렴
+            
+            if abs(new_valence - valence) > 0.001:
+                if not dry_run:
+                    c.execute("""
+                    UPDATE memory_meta SET valence = ? WHERE path = ?
+                    """, (new_valence, path))
+                if verbose:
+                    print(f"  💭 {path}: valence {valence:+.3f} → {new_valence:+.3f} (emotional drift)")
+        
+        # ── 4. Prune: memories below threshold ──
         if (strength or 1.0) < 0.05 and consolidation == 0:
             stats['pruned'] += 1
             if verbose:
