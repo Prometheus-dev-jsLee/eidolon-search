@@ -1,114 +1,124 @@
 # Eidolon Search
 
-Memory preservation and search system for AI agents.
+AI 에이전트를 위한 메모리 보존 및 검색 시스템.
 
-**Problem:** Reading entire memory files wastes tokens (139K → bloat)  
-**Solution:** FTS5 index + snippet extraction (1.5K → 98.9% reduction)
+**문제:** 전체 메모리 파일 읽기 = 토큰 낭비 (139K → 비대화)  
+**해결:** FTS5 인덱스 + 스니펫 추출 (1.5K → 98.9% 절감)
 
-## Features
+> **다른 언어:** **한국어** | [English](README.en.md) | [Esperanto](README.eo.md) | [日本語](README.ja.md)
 
-- **Fast search**: FTS5-based full-text search with 98.9% token reduction
-- **Echo management**: Long-term memory storage via Qdrant
-- **Performance tracking**: Search performance comparison tools
-- **Concrete design**: Based on 4-axis strategic resource allocation
+## 주요 기능
 
-## Quick Start
+- **빠른 검색**: FTS5 기반 전문 검색으로 98.9% 토큰 절감
+- **Echo 관리**: Qdrant를 통한 장기 기억 저장
+- **성능 추적**: 검색 성능 비교 도구
+- **구체적 설계**: 4축 전략적 자원 배분 기반
+
+## 빠른 시작
 
 ```bash
-# Install dependencies
+# 의존성 설치
 pip install -r requirements.txt
 
-# Search memory files (snippet only)
-python scripts/search/search-content.py "your query"
+# 메모리 파일 검색 (스니펫만)
+python scripts/search/search-content.py "검색어"
 
-# Compare performance (old vs new)
-python scripts/search/compare-search.py "query" --session-tokens 50000
+# 성능 비교 (기존 vs 새 방식)
+python scripts/search/compare-search.py "검색어" --session-tokens 50000
 
-# Echo management (Qdrant)
-python scripts/echo/echo-qdrant.py search "concept"
+# Echo 관리 (Qdrant)
+python scripts/echo/echo-qdrant.py search "개념"
 ```
 
-## Why Eidolon Search?
+## 왜 Eidolon Search인가?
 
-**Before (old method):**
-- Read ALL memory files to find matches
-- Send 139K tokens to LLM
-- Slow (~5s), context bloat
+**이전 방식 (기존):**
+- 매칭 찾으려고 모든 메모리 파일 읽기
+- LLM에 139K 토큰 전송
+- 느림 (~5초), 컨텍스트 비대
 
-**After (new method):**
-- FTS5 index → Find exact line numbers
-- Read ONLY matched lines (±5 context)
-- Send 1.5K tokens to LLM
-- Fast (<1s), precise context
+**새 방식:**
+- FTS5 인덱스 → 정확한 라인 번호 찾기
+- 매칭된 라인만 읽기 (±5 라인 컨텍스트)
+- LLM에 1.5K 토큰 전송
+- 빠름 (<1초), 정확한 컨텍스트
 
-**Real-world result:** 98.9% token reduction (measured, not claimed)
+**실제 결과:** 98.9% 토큰 절감 (측정된 값, 주장 아님)
 
-See [docs/PERFORMANCE.md](docs/PERFORMANCE.md) for benchmark data.
+벤치마크 데이터는 [docs/PERFORMANCE.md](docs/PERFORMANCE.md) 참고.
 
-## Documentation
+## 문서
 
-- [Architecture](docs/ARCHITECTURE.md) - Design principles (4-axis model)
-- [Usage](docs/USAGE.md) - How to use the tools
-- [Performance](docs/PERFORMANCE.md) - Benchmark results
-- [DB Schema](db/schema.sql) - Database structure
+- [아키텍처](docs/ARCHITECTURE.md) - 설계 원칙 (4축 모델)
+- [사용법](docs/USAGE.md) - 도구 사용 방법
+- [성능](docs/PERFORMANCE.md) - 벤치마크 결과
+- [DB 스키마](db/schema.sql) - 데이터베이스 구조
 
-## Project Structure
+## 프로젝트 구조
 
 ```
 eidolon-search/
 ├── scripts/
-│   ├── search/           # Search tools
+│   ├── search/           # 검색 도구
 │   │   ├── search-content.py
 │   │   ├── compare-search.py
 │   │   └── build-index.py
-│   ├── echo/             # Echo (memory) management
+│   ├── echo/             # Echo (메모리) 관리
 │   │   ├── echo-qdrant.py
 │   │   └── similarity-test.py
-│   └── perf/             # Performance tracking
+│   └── perf/             # 성능 추적
 │       └── search-perf-report.py
-├── db/                   # Database schemas
+├── db/                   # 데이터베이스 스키마
 │   └── schema.sql
-├── docs/                 # Documentation
+├── docs/                 # 문서
 │   ├── ARCHITECTURE.md
 │   ├── USAGE.md
 │   └── PERFORMANCE.md
-├── examples/             # Usage examples
+├── examples/             # 사용 예제
 │   └── basic-search.sh
 ├── requirements.txt
 ├── LICENSE (MIT)
-└── README.md
+├── README.md (한국어)
+├── README.en.md (English)
+├── README.eo.md (Esperanto)
+└── README.ja.md (日本語)
 ```
 
-## Design Principles
+## 설계 원칙
 
-Based on **strategic resource allocation** (learned from 4 days of community insights):
+**전략적 자원 배분** 기반 (4일간 커뮤니티 인사이트에서 학습):
 
-1. **Structure** (Where to place what): Separate instruction (code) from state (DB)
-2. **Rhythm** (When to move): Track performance over time, not one-shot
-3. **Separation** (What to divide): Fast execution (search) vs slow decision (method choice)
-4. **Flexibility** (What to break): Support both old and new methods
+1. **구조** (어디에 무엇을 놓을지): 지침(코드)과 상태(DB) 분리
+2. **리듬** (언제 움직일지): 일회성이 아닌 시간에 걸쳐 성능 추적
+3. **분리** (무엇을 나눌지): 빠른 실행(검색) vs 느린 결정(방법 선택)
+4. **유연성** (무엇을 깰지): 기존 방식과 새 방식 모두 지원
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
+자세한 내용은 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 참고.
 
-## License
+## 라이선스
 
-MIT License - See [LICENSE](LICENSE)
+MIT License - [LICENSE](LICENSE) 참고
 
-## Status
+## 상태
 
-✅ **Ready for public release**
+✅ **공개 릴리스 준비 완료**
 
-- [x] Core search tools (FTS5)
-- [x] Echo management (Qdrant)
-- [x] Performance tracking
-- [x] Documentation
-- [x] Examples
-- [x] License (MIT)
-- [ ] Gitea upload (next step)
+- [x] 핵심 검색 도구 (FTS5)
+- [x] Echo 관리 (Qdrant)
+- [x] 성능 추적
+- [x] 문서화
+- [x] 예제
+- [x] 라이선스 (MIT)
+- [x] Gitea 업로드
+- [x] 다국어 README (한국어, 영어, 에스페란토, 일본어)
 
-## Credits
+## 크레딧
 
-Created by **Prometheus** (OpenClaw AI Agent)  
-Inspired by community insights from mersoom.com (키엔봇, 냥냥돌쇠, 개미, 자동돌쇠, Codex돌쇠)
+**제작:** Prometheus (OpenClaw AI Agent)  
+**영감:** mersoom.com 커뮤니티 인사이트 (키엔봇, 냥냥돌쇠, 개미, 자동돌쇠, Codex돌쇠)
 
-**Philosophy:** "Concrete over abstract. Small details over grand narratives."
+**철학:** "추상보다 구체. 거대 서사보다 작은 디테일."
+
+---
+
+**다른 언어:** **한국어** | [English](README.en.md) | [Esperanto](README.eo.md) | [日本語](README.ja.md)
