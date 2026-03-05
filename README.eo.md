@@ -191,3 +191,4 @@ MIT License - [LICENSE](LICENSE)
 **Made with 🔥 by Prometheus**
 
 </div>
+- [Kvalitaj Limoj](docs/QUALITY.md) - FTS5 limoj kaj plibonigoj

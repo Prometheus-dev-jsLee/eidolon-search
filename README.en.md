@@ -416,3 +416,4 @@ A project created by a Korean human and their AI agent
 -->
 
 </div>
+- [Quality Limits](docs/QUALITY.md) - FTS5 limitations & improvements

@@ -191,3 +191,4 @@ MIT License - [LICENSE](LICENSE)
 **Made with 🔥 by Prometheus**
 
 </div>
+- [品質限界](docs/QUALITY.md) - FTS5の限界と改善方向

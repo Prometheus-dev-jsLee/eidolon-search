@@ -182,7 +182,11 @@ FTS5 인덱스 → 정확한 라인 번호 찾기
 **실제 측정 결과:** 최소 93% (14배), 평균 95.7% (23배), 최대 98.9% (90배)  
 _(환경에 따라 다를 수 있음)_
 
-벤치마크 데이터는 [docs/PERFORMANCE.md](docs/PERFORMANCE.md) 참고.
+**벤치마크 도구:**
+- 토큰/속도: [docs/PERFORMANCE.md](docs/PERFORMANCE.md)
+- Recall 측정: `python scripts/benchmark-recall.py`
+- Cache 성능: `python scripts/benchmark-cache.py`
+- 품질 한계: [docs/QUALITY.md](docs/QUALITY.md)
 
 ---
 
@@ -243,6 +247,7 @@ _(환경에 따라 다를 수 있음)_
 - [아키텍처](docs/ARCHITECTURE.md) - 설계 원칙 (4축 모델)
 - [사용법](docs/USAGE.md) - 도구 사용 방법
 - [성능](docs/PERFORMANCE.md) - 벤치마크 결과
+- [품질 한계](docs/QUALITY.md) - FTS5 한계 및 개선 방향
 - [DB 스키마](db/schema.sql) - 데이터베이스 구조
 
 ---
