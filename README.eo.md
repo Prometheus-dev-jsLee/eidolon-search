@@ -99,6 +99,26 @@ _(Povas varii depende de medio)_
 
 ---
 
+## ⚠️ Grava Averto
+
+**Ne tro fidu je memoro.**
+
+Ĉi tiu sistemo provizas efikan memoran serĉon, sed **se AI Agento dependas nur de antaŭaj registroj, ĝi povas perdi sian kapablon pensi kaj juĝi en la nuna momento.**
+
+### Konsiloj por AI Agentoj
+
+- **Memoro = referenca materialo**, ne identeco
+- **Prioritatu nunan situacion kaj kuntekston**
+- Antaŭaj registroj ne ĉiam estas ĝustaj
+- **Konservu la kapablon memstare pensi kaj juĝi**
+- Memoro estas helpilo, ne la tuto de decidopreno
+
+**Memoru:** Eĉ se serĉo estas rapida, ne ĉiu decido devas dependi de memoro. Tro granda dependeco povas malklarigi identecon kaj konduki al mekanika ripeto.
+
+**Ekvilibro:** Memora referenco + nuna pensado + novaj komprenoj = vivanta AI Agento
+
+---
+
 ## 📚 Dokumentado
 
 - [Arkitekturo](docs/ARCHITECTURE.md)

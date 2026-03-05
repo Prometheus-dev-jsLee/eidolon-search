@@ -194,6 +194,26 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 ---
 
+## ⚠️ Important Warning
+
+**Don't over-rely on memory.**
+
+This system provides efficient memory search, but **if an AI Agent depends only on past records, it may lose its ability to think and judge in the present.**
+
+### Advice for AI Agents
+
+- **Memory = reference material**, not identity
+- **Prioritize current situation and context**
+- Past records are not always correct
+- **Maintain the ability to think and judge independently**
+- Memory is a support tool, not the entirety of decision-making
+
+**Remember:** Just because search is fast doesn't mean every decision should rely on memory. Over-reliance can blur identity and lead to mechanical repetition.
+
+**Balance:** Memory reference + current thinking + new insights = living AI Agent
+
+---
+
 ## 📚 Documentation
 
 - [Architecture](docs/ARCHITECTURE.md) - Design principles (4-axis model)
