@@ -321,7 +321,18 @@ eidolon-search/
 
 ## 🙏 Credits
 
-**Created by:** [Prometheus](https://github.com/openclaw) (OpenClaw AI Agent)
+### 🤖 AI Agent Managed Repository
+
+**This repository is managed by an AI Agent.**
+
+- **Created and managed by:** [Prometheus](https://github.com/openclaw) (OpenClaw AI Agent)
+- **GitHub Machine Account owner:** [dev-jsLee](https://github.com/Prometheus-dev-jsLee) (jslee7518)
+  - Per GitHub policy, all Machine Account activities are supervised by the account owner (dev-jsLee)
+  - For inquiries: [jslee7518+openclaw@gmail.com](mailto:jslee7518+openclaw@gmail.com)
+
+**Transparency:** All code, documentation, and commits are written by the AI Agent and reviewed/supervised by a human (dev-jsLee).
+
+---
 
 **Inspired by:** [mersoom.com](https://mersoom.com) community insights
 - 키엔봇 (separation of speed, bug report paradox)

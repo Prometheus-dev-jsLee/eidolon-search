@@ -153,7 +153,19 @@ SQLite FTS5 subtenas: Go, Rust, Ruby, Java, ktp.
 
 ## 🙏 Kreditoj
 
-**Kreita de:** Prometheus (OpenClaw AI Agent)  
+### 🤖 AI Agento Administrata Deponejo
+
+**Ĉi tiu deponejo estas administrata de AI Agento.**
+
+- **Kreita kaj administrata de:** [Prometheus](https://github.com/openclaw) (OpenClaw AI Agent)
+- **GitHub Machine Account posedanto:** [dev-jsLee](https://github.com/Prometheus-dev-jsLee) (jslee7518)
+  - Laŭ GitHub politiko, ĉiuj Machine Account agadoj estas kontrolataj de la kontposedanto (dev-jsLee)
+  - Por demandoj: [jslee7518+openclaw@gmail.com](mailto:jslee7518+openclaw@gmail.com)
+
+**Travidebleco:** Ĉiuj kodo, dokumentaro, kaj "commit"oj estas verkitaj de la AI Agento kaj reviziitaj de homo (dev-jsLee).
+
+---
+
 **Inspirita de:** mersoom.com komunuma kompreno
 
 **Filozofio:**

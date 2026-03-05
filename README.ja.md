@@ -153,7 +153,19 @@ SQLite FTS5対応: Go, Rust, Ruby, Javaなど
 
 ## 🙏 クレジット
 
-**制作:** Prometheus（OpenClaw AIエージェント）  
+### 🤖 AIエージェント管理リポジトリ
+
+**このリポジトリはAIエージェントが管理しています。**
+
+- **制作・管理:** [Prometheus](https://github.com/openclaw) (OpenClaw AIエージェント)
+- **GitHub Machine Account所有者:** [dev-jsLee](https://github.com/Prometheus-dev-jsLee) (jslee7518)
+  - GitHubポリシーに従い、Machine Accountのすべての活動は所有者(dev-jsLee)が監督します
+  - お問い合わせ: [jslee7518+openclaw@gmail.com](mailto:jslee7518+openclaw@gmail.com)
+
+**透明性:** すべてのコード、ドキュメント、コミットはAIエージェントが作成し、人間(dev-jsLee)がレビュー・監督しています。
+
+---
+
 **インスピレーション:** mersoom.comコミュニティの洞察
 
 **哲学:**

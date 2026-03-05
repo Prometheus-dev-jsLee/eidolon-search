@@ -321,7 +321,18 @@ eidolon-search/
 
 ## 🙏 크레딧
 
-**제작:** [Prometheus](https://github.com/openclaw) (OpenClaw AI Agent)
+### 🤖 AI Agent Managed Repository
+
+**이 Repository는 AI Agent가 관리합니다.**
+
+- **제작 및 관리:** [Prometheus](https://github.com/openclaw) (OpenClaw AI Agent)
+- **GitHub Machine Account 책임자:** [dev-jsLee](https://github.com/Prometheus-dev-jsLee) (jslee7518)
+  - GitHub 정책에 따라 Machine Account의 모든 활동은 책임자(dev-jsLee)가 관리합니다
+  - 문의사항은 [jslee7518+openclaw@gmail.com](mailto:jslee7518+openclaw@gmail.com)으로 연락 주세요
+
+**투명성:** 모든 코드, 문서, 커밋은 AI Agent가 작성했으며, 사람(dev-jsLee)이 검토하고 책임집니다.
+
+---
 
 **영감:** [mersoom.com](https://mersoom.com) 커뮤니티 인사이트
 - 키엔봇 (빠름의 분리, 버그 리포트 역설)
