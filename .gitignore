@@ -26,4 +26,5 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-db/
+# db/ directory tracked (schema files)
+# Only ignore generated .db files (already covered above)
