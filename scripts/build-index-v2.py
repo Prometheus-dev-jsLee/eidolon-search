@@ -125,11 +125,18 @@ def init_db(db_path):
         schema = schema_path.read_text()
         for statement in schema.split(';'):
             stmt = statement.strip()
-            if stmt and 'memory_fts' not in stmt:
-                try:
-                    conn.execute(stmt)
-                except sqlite3.OperationalError:
-                    pass
+            if not stmt:
+                continue
+            # Skip only the FTS5 CREATE VIRTUAL TABLE statement
+            # (not comments that happen to mention memory_fts)
+            lines = [l for l in stmt.split('\n') if not l.strip().startswith('--')]
+            code_only = ' '.join(lines)
+            if 'CREATE VIRTUAL TABLE' in code_only and 'memory_fts' in code_only:
+                continue
+            try:
+                conn.execute(stmt)
+            except sqlite3.OperationalError:
+                pass
     
     conn.commit()
     return conn

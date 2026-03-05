@@ -34,11 +34,17 @@ def ensure_v2_schema(conn):
             schema = schema_path.read_text()
             for statement in schema.split(';'):
                 stmt = statement.strip()
-                if stmt and 'memory_fts' not in stmt:
-                    try:
-                        c.execute(stmt)
-                    except sqlite3.OperationalError:
-                        pass  # table/index already exists
+                if not stmt:
+                    continue
+                # Skip only the FTS5 CREATE VIRTUAL TABLE statement
+                lines = [l for l in stmt.split('\n') if not l.strip().startswith('--')]
+                code_only = ' '.join(lines)
+                if 'CREATE VIRTUAL TABLE' in code_only and 'memory_fts' in code_only:
+                    continue
+                try:
+                    c.execute(stmt)
+                except sqlite3.OperationalError:
+                    pass  # table/index already exists
             conn.commit()
             
             # Backfill metadata for existing FTS entries
