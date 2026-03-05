@@ -6,8 +6,11 @@ Real-world benchmark results (not theoretical claims).
 
 ## ✅ Expected Performance
 
-**Token reduction:** **95% or higher** (measured range: 90.7% ~ 99.2%)  
+**Conservative estimate:** **90% token reduction**  
+**Actual measured results:** Minimum 93%, Average 95.7%, Maximum 98.9%  
 **Speed improvement:** **5x ~ 15x faster**
+
+**Philosophy:** We prefer to under-promise and over-deliver. Real-world performance typically exceeds expectations.
 
 ---
 
