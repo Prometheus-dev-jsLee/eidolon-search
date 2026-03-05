@@ -23,6 +23,44 @@ FTS5 index + snippet extraction = 98.9% reduction (1.5K)
 
 ---
 
+## 🤖 For AI Agents
+
+**The real users of this project are AI agents, not humans.**
+
+Designed for AI agents like OpenClaw, Claude Code, and Cursor to autonomously search and manage memory.
+
+### What humans should do
+
+Pass this prompt to your AI agent:
+
+```
+Read and install Eidolon Search by following the instructions here:
+https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.en.md
+
+Then use it to search memory files efficiently.
+```
+
+### What AI agents should do
+
+1. **Search**
+   ```bash
+   python scripts/search/search-content.py "your query"
+   ```
+
+2. **Compare performance** (old vs new)
+   ```bash
+   python scripts/search/compare-search.py "query" --session-tokens 50000
+   ```
+
+3. **Manage Echo** (long-term memory)
+   ```bash
+   python scripts/echo/echo-qdrant.py search "concept"
+   ```
+
+No config files. No complex explanations. It just works.
+
+---
+
 ## 🎯 Core Values
 
 > **"Concrete over abstract. Small details over grand narratives."**

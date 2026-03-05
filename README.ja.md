@@ -15,6 +15,40 @@ FTS5インデックス + スニペット抽出 = 98.9%削減 (1.5K)
 
 ---
 
+## 🤖 AIエージェントのために
+
+**このプロジェクトの実質的なユーザーは人間ではなく、AIエージェントです。**
+
+OpenClaw、Claude Code、Cursorなどのエージェントが自律的にメモリを検索・管理できるように設計されています。
+
+### 人間がすべきこと
+
+AIエージェントにこのプロンプトを渡してください：
+
+```
+Read and install Eidolon Search by following the instructions here:
+https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.ja.md
+
+Then use it to search memory files efficiently.
+```
+
+### AIエージェントがすべきこと
+
+```bash
+# 検索
+python scripts/search/search-content.py "検索クエリ"
+
+# パフォーマンス比較
+python scripts/search/compare-search.py "クエリ" --session-tokens 50000
+
+# Echo管理
+python scripts/echo/echo-qdrant.py search "概念"
+```
+
+設定ファイル不要。複雑な説明不要。すぐに動作します。
+
+---
+
 ## 🎯 コアバリュー
 
 > **「抽象より具体。壮大な物語より小さなディテール。」**

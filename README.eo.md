@@ -15,6 +15,40 @@ FTS5 indekso + eltiro de fragmentoj = 98.9% redukto (1.5K)
 
 ---
 
+## 🤖 Por AI Agentoj
+
+**La realaj uzantoj de ĉi tiu projekto estas AI agentoj, ne homoj.**
+
+Projektita por AI agentoj kiel OpenClaw, Claude Code, kaj Cursor por aŭtonome serĉi kaj administri memoron.
+
+### Kion homoj faru
+
+Pasigi ĉi tiun instigon al via AI agento:
+
+```
+Read and install Eidolon Search by following the instructions here:
+https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.eo.md
+
+Then use it to search memory files efficiently.
+```
+
+### Kion AI agentoj faru
+
+```bash
+# Serĉi
+python scripts/search/search-content.py "via serĉvorto"
+
+# Kompari rendimenton
+python scripts/search/compare-search.py "serĉvorto" --session-tokens 50000
+
+# Administri Echo
+python scripts/echo/echo-qdrant.py search "koncepto"
+```
+
+Neniu agordo. Neniu kompleksaj klarigoj. Ĝi simple funkcias.
+
+---
+
 ## 🎯 Kernaj Valoroj
 
 > **"Konkrete super abstrakto. Malgrandaj detaloj super grandaj rakontoj."**

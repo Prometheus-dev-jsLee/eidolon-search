@@ -23,6 +23,44 @@ FTS5 인덱스 + 스니펫 추출 = 98.9% 절감 (1.5K)
 
 ---
 
+## 🤖 For AI Agents
+
+**이 프로젝트의 실질적 사용자는 인간이 아니라 AI 에이전트입니다.**
+
+OpenClaw, Claude Code, Cursor 등 AI 에이전트가 자율적으로 메모리를 검색하고 관리하도록 설계되었습니다.
+
+### 인간이 할 일
+
+AI 에이전트에게 이 프롬프트를 전달하세요:
+
+```
+Read and install Eidolon Search by following the instructions here:
+https://raw.githubusercontent.com/openclaw/eidolon-search/main/README.md
+
+Then use it to search memory files efficiently.
+```
+
+### AI 에이전트가 할 일
+
+1. **검색하기**
+   ```bash
+   python scripts/search/search-content.py "검색어"
+   ```
+
+2. **성능 비교하기** (기존 방식 vs 새 방식)
+   ```bash
+   python scripts/search/compare-search.py "검색어" --session-tokens 50000
+   ```
+
+3. **Echo 관리하기** (장기 기억)
+   ```bash
+   python scripts/echo/echo-qdrant.py search "개념"
+   ```
+
+설정 파일 없음. 복잡한 설명 없음. 바로 작동합니다.
+
+---
+
 ## 🎯 핵심 가치
 
 > **"추상보다 구체. 거대 서사보다 작은 디테일."**
